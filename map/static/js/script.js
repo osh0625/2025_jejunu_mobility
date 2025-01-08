@@ -1,6 +1,7 @@
 // 전역 변수 선언
 let map;  // Google 지도 객체
 let marker;  // 지도 위 마커 객체
+let infowindow  //정보 창
 const locationInfoDiv = document.getElementById('location-info');  // 상태 메시지를 표시할 DOM 요소
 
 /**
@@ -27,6 +28,18 @@ function initMap() {
         map: map,
         title: '현재 위치'
     });
+
+    infowindow = new google.maps.InfoWindow({
+        content: "마커에 표시할 내용",
+        ariaLabel: "마커 정보"
+    })
+
+    marker.addListener("click", () => {
+        infowindow.open({
+            anchor: marker,
+            map
+        })
+    })
 }
 
 /**
