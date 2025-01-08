@@ -9,10 +9,14 @@ const locationInfoDiv = document.getElementById('location-info');  // 상태 메
  */
 function initMap() {
     const defaultLocation = { lat: 37.5665, lng: 126.9780 }; // 서울 시청
+    const marker_1 = { lat: 38.5665, lng: 126.9780 };
+    const marker_2 = { lat: 38.5665, lng: 126.9780 };
+    const marker_3 = { lat: 38.5665, lng: 126.9780 };
+    const marker_4 = { lat: 38.5665, lng: 126.9780 };
 
     // Google 지도 초기화 및 기본 설정
     map = new google.maps.Map(document.getElementById('map'), {
-        center: defaultLocation,
+        center: osh,
         zoom: 15,
         zoomControl: true,         // 줌 컨트롤
         mapTypeControl: true,      // 지도 유형 컨트롤
@@ -23,8 +27,23 @@ function initMap() {
     });
 
     // 초기 위치에 마커 생성
-    marker = new google.maps.Marker({
+    marker_1 = new google.maps.Marker({
         position: defaultLocation,
+        map: map,
+        title: '현재 위치'
+    });
+    marker_2 = new google.maps.Marker({
+        position: osh,
+        map: map,
+        title: '현재 위치'
+    });
+    marker_3 = new google.maps.Marker({
+        position: osh,
+        map: map,
+        title: '현재 위치'
+    });
+    marker_4 = new google.maps.Marker({
+        position: osh,
         map: map,
         title: '현재 위치'
     });
